@@ -12,7 +12,13 @@
  */
 
 int main(int argc, char *argv[]) {
-    (void)argc; (void)argv;
-    /* TODO */
-    return 0;
+    if (argc < 2) return 1;
+    char *primero = argv[1];
+    for (char **arg = argv +2; *arg != NULL; arg++)
+        if (!AreEqual(*arg, primero)) {
+            printf("0\n");
+            return 0;
+        }
+    printf("1\n");
+    return 1;
 }
